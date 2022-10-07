@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Cards/Backgrounds/Background.png" type="Texture" id=1]
+[ext_resource path="res://scripts/CardBase.gd" type="Script" id=2]
+
+[node name="Cartes" type="Node2D"]
+
+[node name="CardBase" type="MarginContainer" parent="."]
+margin_right = 250.0
+margin_bottom = 350.0
+rect_pivot_offset = Vector2( 125, 175 )
+script = ExtResource( 2 )
+
+[node name="Card" type="Sprite" parent="CardBase"]
+position = Vector2( 125, 175 )
+
+[node name="Border" type="Sprite" parent="CardBase"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Overlays" type="VBoxContainer" parent="CardBase"]
+margin_right = 250.0
+margin_bottom = 350.0
+
+[node name="TopGap" type="MarginContainer" parent="CardBase/Overlays"]
+margin_right = 250.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="TopBar" type="HBoxContainer" parent="CardBase/Overlays"]
+margin_top = 29.0
+margin_right = 250.0
+margin_bottom = 43.0
+
+[node name="LeftGap" type="MarginContainer" parent="CardBase/Overlays/TopBar"]
+margin_right = 25.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 25, 0 )
+
+[node name="Name" type="MarginContainer" parent="CardBase/Overlays/TopBar"]
+margin_left = 29.0
+margin_right = 29.0
+margin_bottom = 14.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CardBase/Overlays/TopBar/Name"]
+margin_bottom = 14.0
+
+[node name="name_text" type="Label" parent="CardBase/Overlays/TopBar/Name/CenterContainer"]
+margin_bottom = 14.0
+
+[node name="name_back" type="NinePatchRect" parent="CardBase/Overlays/TopBar/Name"]
+margin_bottom = 14.0
+
+[node name="MidGap" type="MarginContainer" parent="CardBase/Overlays/TopBar"]
+margin_left = 33.0
+margin_right = 217.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 25, 0 )
+size_flags_horizontal = 3
+
+[node name="Cost" type="MarginContainer" parent="CardBase/Overlays/TopBar"]
+margin_left = 221.0
+margin_right = 221.0
+margin_bottom = 14.0
+
+[node name="cost_back" type="NinePatchRect" parent="CardBase/Overlays/TopBar/Cost"]
+margin_bottom = 14.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CardBase/Overlays/TopBar/Cost"]
+margin_bottom = 14.0
+
+[node name="cost_text" type="Label" parent="CardBase/Overlays/TopBar/Cost/CenterContainer"]
+margin_bottom = 14.0
+
+[node name="RightGap" type="MarginContainer" parent="CardBase/Overlays/TopBar"]
+margin_left = 225.0
+margin_right = 250.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 25, 0 )
