@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/Cards/Backgrounds/Background.png" type="Texture" id=1]
 [ext_resource path="res://scripts/CardBase.gd" type="Script" id=2]
 
-[node name="Cartes" type="Node2D"]
+[node name="Cards" type="Node2D"]
 
 [node name="CardBase" type="MarginContainer" parent="."]
 margin_right = 250.0
