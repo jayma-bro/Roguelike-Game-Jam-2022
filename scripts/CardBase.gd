@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -12,18 +12,18 @@ onready var CardBorderImg = str("res://assets/Cards/Backgrounds/front/",CardInfo
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var CardSize = rect_size
+	var CardSize = $MarginContainer.rect_size
 	
 	$Border.texture = load(CardBorderImg)
-	$Border.scale *= CardSize/$Border.texture.get_size()
+	$Border.scale = CardSize/$Border.texture.get_size()
 	
 	$Card.texture = load(CardFrontImg)
-	$Card.scale *= CardSize/$Card.texture.get_size()
+	$Card.scale = CardSize/$Card.texture.get_size()
 	
 #	$ZoomFocus.rect_scale *= CardSize/$ZoomFocus.rect_size
 #	var Attack = str(CardInfo.attack)
-	$Overlays/TopBar/Name/CenterContainer/name_text.text = CardInfo.nom
-	$Overlays/TopBar/Cost/CenterContainer/cost_text.text = str(CardInfo.cost)
+	$Name.text = CardInfo.nom
+	$Cost.text = str(CardInfo.cost)
 	
 enum{
 	inHand

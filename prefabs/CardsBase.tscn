@@ -1,96 +1,70 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://assets/aventure assets/Background/Blue.png" type="Texture" id=1]
 [ext_resource path="res://scripts/CardBase.gd" type="Script" id=2]
+[ext_resource path="res://assets/Font/PixeloidSans.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/Cards/Values/monstre/Monstre1.png" type="Texture" id=4]
+[ext_resource path="res://assets/Cards/Backgrounds/front/monstre.png" type="Texture" id=5]
 
-[sub_resource type="Theme" id=1]
+[sub_resource type="DynamicFont" id=2]
+size = 14
+font_data = ExtResource( 3 )
 
-[node name="CardBase" type="MarginContainer"]
-anchor_left = 0.193
-anchor_top = 0.424
-anchor_right = 0.193
-anchor_bottom = 0.424
-margin_left = -124.632
-margin_top = -175.224
-margin_right = 125.368
-margin_bottom = 174.776
-rect_pivot_offset = Vector2( 125, 175 )
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CardBase" type="Node2D" parent="."]
+position = Vector2( 256, 256 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Card" type="Sprite" parent="."]
-position = Vector2( 125, 175 )
+[node name="Card" type="Sprite" parent="CardBase"]
+position = Vector2( 3.8147e-06, -1.52588e-05 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
 
-[node name="Border" type="Sprite" parent="."]
-centered = false
+[node name="Border" type="Sprite" parent="CardBase"]
+position = Vector2( 8.10623e-06, -3.8147e-06 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
 
-[node name="Overlays" type="VBoxContainer" parent="."]
-margin_right = 250.0
-margin_bottom = 350.0
+[node name="Name" type="Label" parent="CardBase"]
+margin_left = -40.0
+margin_top = 45.0
+margin_right = 87.0
+margin_bottom = 65.0
+custom_colors/font_color = Color( 0.0470588, 0.184314, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "efsrefgh"
 
-[node name="TopGap" type="MarginContainer" parent="Overlays"]
-margin_right = 250.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 0, 25 )
+[node name="Cost" type="Label" parent="CardBase"]
+margin_left = 35.0
+margin_top = -96.0
+margin_right = 58.0
+margin_bottom = -76.0
+custom_fonts/font = SubResource( 3 )
+text = "10"
+align = 1
 
-[node name="TopBar" type="HBoxContainer" parent="Overlays"]
-margin_top = 29.0
-margin_right = 250.0
-margin_bottom = 43.0
+[node name="ZoomFocus" type="TextureButton" parent="CardBase"]
+margin_left = -128.0
+margin_top = -176.0
+margin_right = 122.0
+margin_bottom = 174.0
 
-[node name="LeftGap" type="MarginContainer" parent="Overlays/TopBar"]
-margin_right = 25.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 25, 0 )
+[node name="MarginContainer" type="MarginContainer" parent="CardBase"]
+margin_left = -64.0
+margin_top = -104.0
+margin_right = 64.0
+margin_bottom = 104.0
 
-[node name="Name" type="MarginContainer" parent="Overlays/TopBar"]
-margin_left = 29.0
-margin_right = 29.0
-margin_bottom = 14.0
-
-[node name="CenterContainer" type="CenterContainer" parent="Overlays/TopBar/Name"]
-margin_bottom = 14.0
-
-[node name="name_text" type="Label" parent="Overlays/TopBar/Name/CenterContainer"]
-margin_bottom = 14.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Overlays/TopBar/Name/CenterContainer"]
-modulate = Color( 1, 0, 0, 1 )
-margin_top = 7.0
-margin_bottom = 7.0
-
-[node name="name_back" type="NinePatchRect" parent="Overlays/TopBar/Name"]
-margin_bottom = 14.0
-
-[node name="MidGap" type="MarginContainer" parent="Overlays/TopBar"]
-margin_left = 33.0
-margin_right = 217.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 25, 0 )
-size_flags_horizontal = 3
-
-[node name="Cost" type="MarginContainer" parent="Overlays/TopBar"]
-margin_left = 221.0
-margin_right = 221.0
-margin_bottom = 14.0
-
-[node name="cost_back" type="NinePatchRect" parent="Overlays/TopBar/Cost"]
-margin_bottom = 14.0
-
-[node name="CenterContainer" type="CenterContainer" parent="Overlays/TopBar/Cost"]
-margin_bottom = 14.0
-
-[node name="cost_text" type="Label" parent="Overlays/TopBar/Cost/CenterContainer"]
-margin_bottom = 14.0
-theme = SubResource( 1 )
-
-[node name="RightGap" type="MarginContainer" parent="Overlays/TopBar"]
-margin_left = 225.0
-margin_right = 250.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 25, 0 )
-
-[node name="ZoomFocus" type="TextureButton" parent="."]
-margin_right = 250.0
-margin_bottom = 350.0
-
-[connection signal="mouse_entered" from="ZoomFocus" to="." method="_on_ZoomFocus_mouse_entered"]
-[connection signal="mouse_exited" from="ZoomFocus" to="." method="_on_ZoomFocus_mouse_exited"]
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 256, 256 )
+scale = Vector2( 2, 3.25 )
+z_index = -10
+texture = ExtResource( 1 )
