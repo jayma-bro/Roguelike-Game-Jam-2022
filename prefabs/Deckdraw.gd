@@ -11,7 +11,7 @@ func _ready():
 
 
 func _gui_input(event):
-	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+	if Input.is_action_just_pressed("ui_select"):
 		if DeckSize > 0:
 			DeckSize = $'../../'.drawcard()
 			if DeckSize == 0:
