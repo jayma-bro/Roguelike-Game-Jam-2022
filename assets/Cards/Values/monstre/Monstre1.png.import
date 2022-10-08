@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Grey On (32x8).png-458025ef04afeafa47cbae5e452c2657.stex"
+path="res://.import/Monstre1.png-1aae2648ec54c38fd15cd48007c64865.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aventure assets/Traps/Platforms/Grey On (32x8).png"
-dest_files=[ "res://.import/Grey On (32x8).png-458025ef04afeafa47cbae5e452c2657.stex" ]
+source_file="res://assets/Cards/Values/monstre/Monstre1.png"
+dest_files=[ "res://.import/Monstre1.png-1aae2648ec54c38fd15cd48007c64865.stex" ]
 
 [params]
 

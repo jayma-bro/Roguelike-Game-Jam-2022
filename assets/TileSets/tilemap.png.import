@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Grey On (32x8).png-458025ef04afeafa47cbae5e452c2657.stex"
+path="res://.import/tilemap.png-cb34355437dd20d8bc68ae39a70fe29a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aventure assets/Traps/Platforms/Grey On (32x8).png"
-dest_files=[ "res://.import/Grey On (32x8).png-458025ef04afeafa47cbae5e452c2657.stex" ]
+source_file="res://assets/TileSets/tilemap.png"
+dest_files=[ "res://.import/tilemap.png-cb34355437dd20d8bc68ae39a70fe29a.stex" ]
 
 [params]
 

@@ -1,11 +1,18 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/Cards/Backgrounds/Background.png" type="Texture" id=1]
 [ext_resource path="res://scripts/CardBase.gd" type="Script" id=2]
 
+[sub_resource type="Theme" id=1]
+
 [node name="CardBase" type="MarginContainer"]
-margin_right = 250.0
-margin_bottom = 350.0
+anchor_left = 0.193
+anchor_top = 0.424
+anchor_right = 0.193
+anchor_bottom = 0.424
+margin_left = -124.632
+margin_top = -175.224
+margin_right = 125.368
+margin_bottom = 174.776
 rect_pivot_offset = Vector2( 125, 175 )
 script = ExtResource( 2 )
 
@@ -13,7 +20,6 @@ script = ExtResource( 2 )
 position = Vector2( 125, 175 )
 
 [node name="Border" type="Sprite" parent="."]
-texture = ExtResource( 1 )
 centered = false
 
 [node name="Overlays" type="VBoxContainer" parent="."]
@@ -46,6 +52,11 @@ margin_bottom = 14.0
 [node name="name_text" type="Label" parent="Overlays/TopBar/Name/CenterContainer"]
 margin_bottom = 14.0
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Overlays/TopBar/Name/CenterContainer"]
+modulate = Color( 1, 0, 0, 1 )
+margin_top = 7.0
+margin_bottom = 7.0
+
 [node name="name_back" type="NinePatchRect" parent="Overlays/TopBar/Name"]
 margin_bottom = 14.0
 
@@ -69,9 +80,17 @@ margin_bottom = 14.0
 
 [node name="cost_text" type="Label" parent="Overlays/TopBar/Cost/CenterContainer"]
 margin_bottom = 14.0
+theme = SubResource( 1 )
 
 [node name="RightGap" type="MarginContainer" parent="Overlays/TopBar"]
 margin_left = 225.0
 margin_right = 250.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 25, 0 )
+
+[node name="ZoomFocus" type="TextureButton" parent="."]
+margin_right = 250.0
+margin_bottom = 350.0
+
+[connection signal="mouse_entered" from="ZoomFocus" to="." method="_on_ZoomFocus_mouse_entered"]
+[connection signal="mouse_exited" from="ZoomFocus" to="." method="_on_ZoomFocus_mouse_exited"]
