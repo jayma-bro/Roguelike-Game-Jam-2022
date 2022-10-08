@@ -13,15 +13,17 @@ var hitDecrece: float = 0
 var hit: bool = false
 var push: float = 0
 var last_contact: String = ""
+var mvpf: bool = false
 
 func _ready() -> void:
+	gravity = get_tree().get_root().get_node('Niveau/Gravity').gravity
 	pass
 
 func _process(delta: float) -> void:
 	Move(delta)
-	Animation()
-	if last_contact == 'PF_MV_3':
+	if last_contact == 'PF_MV_3' or mvpf:
 		move.x += push
+	Animation()
 	move_and_slide(move * delta * antdelta, Vector2.UP)
 
 
@@ -30,15 +32,40 @@ func _input(event: InputEvent) -> void:
 
 func Animation() -> void:
 	if move.x > 0:
-		$AnimatedSprite.flip_h = false
+		$MainSprite.flip_h = false
+		$Hat.flip_h = false
+		$Jacket.flip_h = false
 	elif move.x < 0:
-		$AnimatedSprite.flip_h = true
+		$MainSprite.flip_h = true
+		$Hat.flip_h = true
+		$Jacket.flip_h = true
 	if !is_on_floor():
-		$AnimatedSprite.play("Jump")
+		PlayAnim("Jump")
 	elif move.x != 0:
-		$AnimatedSprite.play("Run")
+		if is_on_wall():
+			PlayAnim('Sprotch')
+		else:
+			PlayAnim("Run")
 	else:
-		$AnimatedSprite.play("Idle")
+		PlayAnim("Idle")
+
+func PlayAnim(type: String) -> void:
+	$MainSprite.play(type)
+	$Hat.play(type)
+	$Jacket.play(type)
+	if type == 'Sprotch':
+		if move.x > 0:
+			$MainSprite.offset.x = 8
+			$Hat.offset.x = 8
+			$Jacket.offset.x = 8
+		else:
+			$MainSprite.offset.x = -8
+			$Hat.offset.x = -8
+			$Jacket.offset.x = -8
+	else:
+		$MainSprite.offset.x = 0
+		$Hat.offset.x = 0
+		$Jacket.offset.x = 0
 
 func Gravitation(moveY: float) -> float:
 	if is_on_floor() and moveY > 10:
@@ -71,13 +98,12 @@ func Contact(area: Area2D) -> void:
 		move.y = hitVect.y * hitPwr / 1.5
 
 
-func _on_Gravity_send_gravity(generalGravity) -> void:
-	self.gravity = generalGravity
-
-
 func Contact_node(body: Node) -> void:
 	last_contact = body.name
 	if body.name == "PF_MV_3":
 		push = body.speed
+		mvpf = true
 
-
+func Exit_Contact_node(body: Node):
+	if body.name == "PF_MV_3":
+		mvpf = false

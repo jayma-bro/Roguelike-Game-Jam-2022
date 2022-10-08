@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monstre.png-08fe78387e6cb363bc668f1d62a3a9b3.stex"
+path="res://.import/Enemy_Walk.png-ef22b4af59eeebc74dad45e2dd678085.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cards/Backgrounds/front/monstre.png"
-dest_files=[ "res://.import/monstre.png-08fe78387e6cb363bc668f1d62a3a9b3.stex" ]
+source_file="res://assets/Cards/Values/Enemy_Walk.png"
+dest_files=[ "res://.import/Enemy_Walk.png-ef22b4af59eeebc74dad45e2dd678085.stex" ]
 
 [params]
 

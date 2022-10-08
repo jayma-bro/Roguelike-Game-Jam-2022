@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plateforme.png-82958fa31606e2228bb4cbe28b7b66a9.stex"
+path="res://.import/PF_H_3.png-70813384f2ca278ec26bbca482d4be33.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cards/Backgrounds/front/plateforme.png"
-dest_files=[ "res://.import/plateforme.png-82958fa31606e2228bb4cbe28b7b66a9.stex" ]
+source_file="res://assets/Cards/Backgrounds/front/PF_H_3.png"
+dest_files=[ "res://.import/PF_H_3.png-70813384f2ca278ec26bbca482d4be33.stex" ]
 
 [params]
 

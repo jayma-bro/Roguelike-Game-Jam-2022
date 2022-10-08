@@ -6,16 +6,14 @@
 extents = Vector2( 48, 3 )
 
 [node name="PF_MV_3" type="StaticBody2D"]
-position = Vector2( 515, 364 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
 shape = SubResource( 30 )
 one_way_collision = true
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 3 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 1, 96, 8 )

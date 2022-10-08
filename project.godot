@@ -11,12 +11,16 @@ config_version=4
 [application]
 
 config/name="Roguelike Game Jam 2022"
-run/main_scene="res://prefabs/CardsBase.tscn"
+run/main_scene="res://Scenes/Niveau.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/height=576
+window/size/test_width=1924
+window/size/test_height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 
