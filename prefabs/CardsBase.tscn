@@ -13,6 +13,7 @@ font_data = ExtResource( 3 )
 font_data = ExtResource( 3 )
 
 [node name="CardBase" type="Node2D"]
+position = Vector2( 256, 256 )
 script = ExtResource( 2 )
 
 [node name="Card" type="Sprite" parent="."]
@@ -43,13 +44,14 @@ custom_fonts/font = SubResource( 3 )
 text = "10"
 align = 1
 
-[node name="CardFormat" type="MarginContainer" parent="."]
+[node name="ZoomFocus" type="TextureButton" parent="."]
+margin_left = -128.0
+margin_top = -176.0
+margin_right = 122.0
+margin_bottom = 174.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = -64.0
 margin_top = -104.0
 margin_right = 64.0
 margin_bottom = 104.0
-focus_mode = 1
-
-[connection signal="gui_input" from="CardFormat" to="." method="_on_CardFormat_gui_input"]
-[connection signal="mouse_entered" from="CardFormat" to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CardFormat" to="." method="_on_mouse_exited"]
