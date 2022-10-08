@@ -7,6 +7,8 @@ var CardName = 0
 onready var CardInfo = CardDatabase.DATA[CardName]
 onready var CardImg = str("res://assets/Cards/Values/", CardInfo.nom,".png")
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var CardSize:Vector2 = rect_size
