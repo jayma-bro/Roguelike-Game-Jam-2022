@@ -3,9 +3,9 @@ extends MarginContainer
 
 # Declare member variables here. Examples:
 onready var CardDatabase = preload("res://assets/Cards/CardsDatabase.gd")
-var CardName = 'Plateforme'
-onready var CardInfo = CardDatabase.DATA[CardDatabase.get(CardName)]
-onready var CardImg = str("res://assets/Cards/Values/", CardName,".png")
+var CardName = 0
+onready var CardInfo = CardDatabase.DATA[CardName]
+onready var CardImg = str("res://assets/Cards/Values/", CardInfo.nom,".png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,9 +13,9 @@ func _ready():
 	$Border.scale *= CardSize/$Border.texture.get_size()
 	$Card.texture = load(CardImg)
 	$Card.scale *= CardSize/$Card.texture.get_size()/2
-	var Attack = str(CardInfo[1])
-	var Cost = str(CardInfo[2])
-	$Overlays/TopBar/Name/CenterContainer/name_text.text = CardName
+#	var Attack = str(CardInfo.attack)
+	var Cost = str(CardInfo.cost)
+	$Overlays/TopBar/Name/CenterContainer/name_text.text = CardInfo.nom
 	$Overlays/TopBar/Cost/CenterContainer/cost_text.text = Cost
 	
 

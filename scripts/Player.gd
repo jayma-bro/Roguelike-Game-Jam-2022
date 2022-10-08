@@ -6,7 +6,7 @@ export var speed: float = 60
 export var gravity: float = 8
 export var jump: float = 600
 var antdelta: float = 60
-
+var test = ['truc', 'much']
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 			move.y = 10
 	else:
 		move.y += gravity
-	print(move)
+	print(test[0])
 	move_and_slide(move * delta * antdelta, Vector2.UP)
 
 func _input(event: InputEvent) -> void:
