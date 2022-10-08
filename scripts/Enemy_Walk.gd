@@ -17,6 +17,7 @@ var hit: bool = false
 var move: Vector2 = Vector2.ZERO
 
 func _ready():
+	gravity = get_tree().get_root().get_node('Niveau/Gravity').gravity
 	$AnimatedSprite.play("default")
 	
 
