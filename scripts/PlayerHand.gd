@@ -1,1 +1,1 @@
-const CardList = [0, 0, 1, 0, 2]
+const CardList = [0, 0]
