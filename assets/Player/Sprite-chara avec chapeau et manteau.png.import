@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Monstre1.png-1aae2648ec54c38fd15cd48007c64865.stex"
+path="res://.import/Sprite-chara avec chapeau et manteau.png-8271cae4fc95647f60096ca2419ced19.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cards/Values/monstre/Monstre1.png"
-dest_files=[ "res://.import/Monstre1.png-1aae2648ec54c38fd15cd48007c64865.stex" ]
+source_file="res://assets/Player/Sprite-chara avec chapeau et manteau.png"
+dest_files=[ "res://.import/Sprite-chara avec chapeau et manteau.png-8271cae4fc95647f60096ca2419ced19.stex" ]
 
 [params]
 

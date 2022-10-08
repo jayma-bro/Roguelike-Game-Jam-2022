@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Piege1.png-36b8b99801037511d056731e7dd11910.stex"
+path="res://.import/tilemap VIOLET.png-8a5f1151c83d55a57be1b1d2d6ff09dd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cards/Values/piege/Piege1.png"
-dest_files=[ "res://.import/Piege1.png-36b8b99801037511d056731e7dd11910.stex" ]
+source_file="res://assets/TileSets/tilemap VIOLET.png"
+dest_files=[ "res://.import/tilemap VIOLET.png-8a5f1151c83d55a57be1b1d2d6ff09dd.stex" ]
 
 [params]
 

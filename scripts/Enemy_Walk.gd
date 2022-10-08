@@ -4,6 +4,7 @@ export var hitStr: float = 40
 export var hitDecrece: float = 0.3
 export var speed: float = 5
 export var jump: float = 35
+export var actif: bool = false
 
 
 var antdelta: float = 960
@@ -20,8 +21,8 @@ func _ready():
 	
 
 func _process(delta: float) -> void:
-	Move(delta)
-#	pass
+	if actif:
+		Move(delta)
 
 	
 func Gravitation(moveY: float) -> float:
@@ -48,10 +49,6 @@ func Move(delta) -> Vector2:
 			hitPwr = 0
 	move.y = Gravitation(move.y)
 	return move_and_slide(move * delta * antdelta, Vector2.UP)
-
-func _on_Gravity_send_gravity(generalGravity):
-	self.gravity = generalGravity
-
 
 func Contact(area: Area2D):
 	if area.name == "HitBox":

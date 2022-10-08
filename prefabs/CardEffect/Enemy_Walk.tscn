@@ -62,21 +62,20 @@ animations = [ {
 extents = Vector2( 11, 13.5 )
 
 [node name="Enemy_Walk" type="KinematicBody2D"]
-position = Vector2( 464, 400 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -3.5 )
+position = Vector2( 0, 3.5 )
 shape = SubResource( 27 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -7 )
 frames = SubResource( 26 )
 
 [node name="HitArea" type="Area2D" parent="."]
+position = Vector2( 0, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
-position = Vector2( 0, -3.5 )
+position = Vector2( 0, -4.5 )
 shape = SubResource( 28 )
 
 [connection signal="area_entered" from="HitArea" to="." method="Contact"]
