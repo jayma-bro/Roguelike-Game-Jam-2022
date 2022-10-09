@@ -1,23 +1,33 @@
 extends Node2D
 
 
-export var HandMax = 8
+export var HandMax: int = 8
+export var PickTime: float = 0.2
 
 # Declare member variables here. Examples:
 const CardBase = preload("res://prefabs/CardsBase.tscn")
 const CardSize = Vector2(125,175)
-var CardSelected = []
-onready var DeckSize = Settings.GameSave.Deck.size()
+var compose: bool = false
+var elipsTime: float = 0
+
+func _ready():
+	get_node("/root/Niveau").connect("start_compose", self, "_start_compose")
+
+func _process(delta):
+	if HandMax > Settings.Hand.size() and elipsTime > PickTime and compose:
+		drawcard()
+		elipsTime = 0
+	elipsTime += delta
 
 func drawcard():
-	while HandMax > HandSize:
-		randomize()
-		var new_card = CardBase.instance()
-		CardSelected = randi() % DeckSize
-		new_card.CardName = Settings.GameSave.Deck[CardSelected]
-		new_card.position = Vector2(get_viewport().size.x*(0.8 - (0.6/HandMax)*HandSize), get_viewport().size.y*0.94)
-		$Cards.add_child(new_card)
-		HandSize += 1
-		DeckSize -= 1
+	randomize()
+	var new_card = CardBase.instance()
+	var CardSelected = randi() % Settings.ActifDeck.size()
+	new_card.CardIndex = Settings.ActifDeck.pop_at(CardSelected)
+	Settings.Hand.append(new_card.CardIndex)
+	new_card.position = Vector2(get_viewport().size.x*(0.8 - (0.6/HandMax)*Settings.Hand.size()), get_viewport().size.y*0.94)
+	$Cards.add_child(new_card)
 
-
+func _start_compose():
+	compose = true
+	elipsTime = 0

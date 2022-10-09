@@ -5,9 +5,10 @@ var GameSave = {
 	"Deck": [2, 1, 0, 0, 0, 1, 1, 2, 2]
 }
 
-var Hand = {
-	
-}
+var Hand: Array = []
+
+var ActifDeck: Array = []
+
 const CardsData = [
 	{
 		'name': 'Plateforme',
@@ -22,7 +23,7 @@ const CardsData = [
 		'attack': 1,
 		'cost': 0
 	}, {
-		'name': "Plateforme V",
+		'name': "Plateforme\nVertical",
 		'value': "PF_V_MV",
 		'type': "Netral",
 		'attack': 0,

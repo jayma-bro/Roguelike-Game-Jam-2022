@@ -8,6 +8,7 @@ var StartCompose: bool = false
 signal start_compose()
 
 func _ready():
+	Settings.ActifDeck = Settings.GameSave.Deck
 	$Title.text = "Niveau " + str(Settings.GameSave.Niveau)
 
 func _process(delta):
@@ -21,5 +22,8 @@ func _process(delta):
 		$Title.percent_visible = 0
 		if !StartCompose:
 			StartCompose = true
+			$DoorEnter.play("Enter")
 			emit_signal("start_compose")
+
+
 

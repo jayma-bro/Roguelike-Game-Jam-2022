@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Playspace.gd" type="Script" id=1]
 [ext_resource path="res://assets/Cards/Backgrounds/card_back.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/Cards/Backgrounds/empty_pile.jpg" type="Texture" id=3]
-[ext_resource path="res://scripts/Deckdraw.gd" type="Script" id=4]
 
 [node name="Playspace" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,4 +21,3 @@ texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )
 texture_disabled = ExtResource( 3 )
-script = ExtResource( 4 )
