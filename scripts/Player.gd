@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
 		move.x += push
 	Animation()
 	move_and_slide(move * delta * antdelta, Vector2.UP)
+	if position.y > 600:
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 
 func _input(event: InputEvent) -> void:
@@ -47,6 +49,7 @@ func Animation() -> void:
 			PlayAnim("Run")
 	else:
 		PlayAnim("Idle")
+
 
 func PlayAnim(type: String) -> void:
 	$MainSprite.play(type)
