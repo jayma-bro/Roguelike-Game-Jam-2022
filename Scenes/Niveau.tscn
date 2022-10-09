@@ -4,6 +4,7 @@
 [ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Font/PixeloidSans.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scenes/Playspace.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Niveau.gd" type="Script" id=5]
 [ext_resource path="res://scripts/Gravity.gd" type="Script" id=6]
 [ext_resource path="res://assets/TileSets/tilemap VIOLET.png" type="Texture" id=9]
 
@@ -816,6 +817,7 @@ font_data = ExtResource( 3 )
 0/z_index = 0
 
 [node name="Niveau" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
@@ -853,6 +855,32 @@ margin_bottom = 560.0
 custom_fonts/font = SubResource( 76 )
 text = "Play"
 
-[node name="TileMap2" type="TileMap" parent="."]
-tile_set = SubResource( 77 )
-format = 1
+[node name="PauseMenu" type="VBoxContainer" parent="."]
+margin_left = 446.0
+margin_top = 152.0
+margin_right = 576.0
+margin_bottom = 320.0
+
+[node name="Title" type="Label" parent="PauseMenu"]
+margin_right = 130.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 78 )
+text = "PAUSE"
+align = 1
+
+[node name="Resume" type="Button" parent="PauseMenu"]
+margin_top = 35.0
+margin_right = 130.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 77 )
+text = "Resume"
+
+[node name="BackToMenu" type="Button" parent="PauseMenu"]
+margin_top = 65.0
+margin_right = 130.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 79 )
+text = "Back to menu"
+
+[connection signal="pressed" from="PauseMenu/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="PauseMenu/BackToMenu" to="." method="_on_BackToMenu_pressed"]
