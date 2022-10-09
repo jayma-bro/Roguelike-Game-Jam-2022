@@ -294,13 +294,11 @@ position = Vector2( 0, 0.5 )
 shape = SubResource( 29 )
 
 [node name="Hat" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 0, -8 )
 frames = SubResource( 62 )
 animation = "Sprotch"
 
 [node name="Jacket" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 0, -8 )
 frames = SubResource( 79 )
 animation = "Sprotch"

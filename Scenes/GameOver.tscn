@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Font/PixeloidSans.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/GameOver.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Title" type="Label" parent="."]
+margin_left = 384.0
+margin_top = 128.0
+margin_right = 640.0
+margin_bottom = 165.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+align = 1
+
+[node name="MenuButton" type="Button" parent="."]
+margin_left = 456.0
+margin_top = 256.0
+margin_right = 568.0
+margin_bottom = 282.0
+custom_fonts/font = SubResource( 2 )
+text = "Main menu"
+
+[node name="RestartButton" type="Button" parent="."]
+margin_left = 472.0
+margin_top = 224.0
+margin_right = 552.0
+margin_bottom = 244.0
+custom_fonts/font = SubResource( 3 )
+text = "Restart"
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]

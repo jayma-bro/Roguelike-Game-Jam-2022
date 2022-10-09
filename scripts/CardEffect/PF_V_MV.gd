@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if !actif:
-		if ($SlotArea.get_overlapping_areas().size() > 1 or $SlotArea.get_overlapping_bodies().size() > 0):
+		if ($SlotArea.get_overlapping_areas().size() > 0 or $SlotArea.get_overlapping_bodies().size() > 0):
 			if ValidPlace:
 				ValidPlace = false
 				emit_signal("valid_place", ValidPlace)
@@ -49,14 +49,5 @@ func Move(delta) -> Vector2:
 			move.x = -speed
 			goLeft = true
 			$AnimatedSprite.flip_h = true
-#	else:
-#		if  goLeft:
-#			move.x = -1
-#			goLeft = true
-#			$AnimatedSprite.flip_h = true
-#		else:
-#			move.x = 1
-#			goLeft = false
-#			$AnimatedSprite.flip_h = false
 		
 	return move_and_slide(move , Vector2.UP)

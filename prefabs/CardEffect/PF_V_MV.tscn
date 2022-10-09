@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://prefabs/CardEffect/PF_V_MV.gd" type="Script" id=1]
+[ext_resource path="res://scripts/CardEffect/PF_V_MV.gd" type="Script" id=1]
 [ext_resource path="res://assets/CardEffect/plateforme violette DROITE.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]

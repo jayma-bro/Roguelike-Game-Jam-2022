@@ -97,6 +97,14 @@ func Contact(area: Area2D) -> void:
 		hitPwr = area.get_parent().hitStr
 		hitDecrece = area.get_parent().hitDecrece
 		move.y = hitVect.y * hitPwr / 1.5
+		Settings.health -= 1
+		if Settings.health == 2:
+			$Jacket.visible = false
+		elif Settings.health == 1:
+			$Hat.visible = false
+		elif Settings.health == 0:
+			get_tree().change_scene("res://Scenes/GameOver.tscn")
+		
 
 
 func Contact_node(body: Node) -> void:
@@ -107,3 +115,4 @@ func Contact_node(body: Node) -> void:
 func Exit_Contact_node(body: Node):
 	if body.filename == "res://prefabs/CardEffect/PF_MV_3.tscn":
 		push -= body.speed
+		
