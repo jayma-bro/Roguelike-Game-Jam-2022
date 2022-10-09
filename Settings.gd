@@ -1,6 +1,14 @@
+extends Node
 
-const DeckCards = [3,3,3,3,3]
-const DATA = [
+var GameSave = {
+	"Niveau": 1,
+	"Deck": [2, 1, 0, 0, 0, 1, 1, 2, 2]
+}
+
+var Hand = {
+	
+}
+const CardsData = [
 	{
 		'name': 'Plateforme',
 		'value': "PF_H_3",
@@ -14,12 +22,6 @@ const DATA = [
 		'attack': 1,
 		'cost': 0
 	}, {
-		'name': "Plateforme\nqui bouge",
-		'value': "PF_MV_3",
-		'type': "Netral",
-		'attack': 0,
-		'cost': 0
-	},{
 		'name': "Plateforme V",
 		'value': "PF_V_MV",
 		'type': "Netral",
@@ -28,4 +30,3 @@ const DATA = [
 		
 	}
 ]
-

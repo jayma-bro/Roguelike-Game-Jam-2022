@@ -15,8 +15,8 @@ var push: float = 0
 var actif: bool = false
 
 func _ready() -> void:
-	gravity = get_tree().get_root().get_node('Niveau/Gravity').gravity
-	get_tree().get_root().get_node('Niveau/Play').connect("pressed", self, "Play")
+	gravity = get_node('/root/Niveau/Gravity').gravity
+	get_node('/root/Niveau/Play').connect("pressed", self, "Play")
 
 func _process(delta: float) -> void:
 	if actif:

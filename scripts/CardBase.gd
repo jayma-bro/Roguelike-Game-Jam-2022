@@ -2,15 +2,14 @@ extends Node2D
 
 
 # Declare member variables here. Examples:
-export var CardName: int = 0
-export var FocusUp: float = 40
+export var CardIndex: int = 0
+export var FocusUp: float = 50
 export var Grid: int = 16
 export var BordPlace: int = 448
 
 
 
-onready var CardDatabase = preload("res://scripts/CardsDatabase.gd")
-onready var CardInfo = CardDatabase.DATA[CardName]
+onready var CardInfo = Settings.CardsData[CardIndex]
 onready var CardFrontImg = str("res://assets/Cards/Values/",CardInfo.value,".png")
 onready var CardBorderImg = str("res://assets/Cards/Backgrounds/front/",CardInfo.type,".png")
 onready var CardEffect = load(str("res://prefabs/CardEffect/",CardInfo.value,".tscn"))
@@ -93,7 +92,7 @@ func _on_CardFormat_gui_input(event: InputEvent):
 				state = inHand
 			else:
 				var globalEffect = CardEffect.instance()
-				get_parent().get_parent().get_parent().add_child(globalEffect)
+				get_node("/root/Niveau").add_child(globalEffect)
 				globalEffect.position = GridPos()
 				queue_free()
 

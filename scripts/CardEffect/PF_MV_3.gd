@@ -7,7 +7,7 @@ var ValidPlace: bool = true
 signal valid_place(valid)
 
 func _ready() -> void:
-	get_tree().get_root().get_node('Niveau/Play').connect("pressed", self, "Play")
+	get_node('/root/Niveau/Play').connect("pressed", self, "Play")
 	$AnimatedSprite.play("default")
 	$AnimatedSprite2.play("default")
 	$AnimatedSprite3.play("default")
