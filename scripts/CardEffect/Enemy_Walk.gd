@@ -18,6 +18,7 @@ var move: Vector2 = Vector2.ZERO
 
 func _ready():
 	gravity = get_tree().get_root().get_node('Niveau/Gravity').gravity
+	get_tree().get_root().get_node('Niveau/Play').connect("pressed", self, "Play")
 	$AnimatedSprite.play("default")
 	
 
@@ -50,6 +51,9 @@ func Move(delta) -> Vector2:
 			hitPwr = 0
 	move.y = Gravitation(move.y)
 	return move_and_slide(move * delta * antdelta, Vector2.UP)
+
+func Play():
+	actif = true
 
 func Contact(area: Area2D):
 	if area.name == "HitBox":

@@ -14,15 +14,17 @@ var hit: bool = false
 var push: float = 0
 var last_contact: String = ""
 var mvpf: bool = false
+var actif: bool = false
 
 func _ready() -> void:
 	gravity = get_tree().get_root().get_node('Niveau/Gravity').gravity
-	pass
+	get_tree().get_root().get_node('Niveau/Play').connect("pressed", self, "Play")
 
 func _process(delta: float) -> void:
-	Move(delta)
-	if last_contact == 'PF_MV_3' or mvpf:
-		move.x += push
+	if actif:
+		Move(delta)
+		if last_contact == 'PF_MV_3' or mvpf:
+			move.x += push
 	Animation()
 	move_and_slide(move * delta * antdelta, Vector2.UP)
 
@@ -89,6 +91,8 @@ func Move(delta) -> void:
 			hitPwr = 0
 	move.y = Gravitation(move.y)
 
+func Play():
+	actif = true
 
 func Contact(area: Area2D) -> void:
 	if area.name == "HitArea":
