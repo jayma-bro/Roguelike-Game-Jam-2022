@@ -21,6 +21,7 @@ func _ready():
 
 func drawcard():
 	if HandMax > HandSize:
+		randomize()
 		var new_card = CardBase.instance()
 		CardSelected = randi() % DeckSize
 		new_card.CardName = CardDatabase.DeckCards[CardSelected]

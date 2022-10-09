@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/CardEffect/Enemy_Walk.gd" type="Script" id=1]
 [ext_resource path="res://assets/aventure assets/Main Characters/Ninja Frog/Idle (32x32).png" type="Texture" id=2]
@@ -61,22 +61,36 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 11, 13.5 )
 
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 15, 15 )
+
 [node name="Enemy_Walk" type="KinematicBody2D"]
+z_index = -1
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3.5 )
 shape = SubResource( 27 )
+disabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 26 )
 
 [node name="HitArea" type="Area2D" parent="."]
 position = Vector2( 0, 8 )
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
 position = Vector2( 0, -4.5 )
 shape = SubResource( 28 )
+
+[node name="SlotArea" type="Area2D" parent="."]
+position = Vector2( 0, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotArea"]
+position = Vector2( 0, -8 )
+shape = SubResource( 29 )
 
 [connection signal="area_entered" from="HitArea" to="." method="Contact"]
 [connection signal="area_exited" from="HitArea" to="." method="end_Contact"]

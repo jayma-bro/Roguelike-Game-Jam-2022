@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/CardBase.gd" type="Script" id=2]
 [ext_resource path="res://assets/Font/PixeloidSans.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/Cards/Values/Enemy_Walk.png" type="Texture" id=4]
-[ext_resource path="res://assets/Cards/Backgrounds/front/Enemy_Walk.png" type="Texture" id=5]
+[ext_resource path="res://assets/Cards/Backgrounds/front/Negatif.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=2]
 size = 14
@@ -14,6 +14,7 @@ font_data = ExtResource( 3 )
 
 [node name="CardBase" type="Node2D"]
 position = Vector2( 256, 256 )
+z_index = -1
 script = ExtResource( 2 )
 
 [node name="Card" type="Sprite" parent="."]

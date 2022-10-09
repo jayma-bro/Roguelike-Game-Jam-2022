@@ -12,8 +12,6 @@ var hitPwr: float = 0
 var hitDecrece: float = 0
 var hit: bool = false
 var push: float = 0
-var last_contact: String = ""
-var mvpf: bool = false
 var actif: bool = false
 
 func _ready() -> void:
@@ -23,8 +21,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if actif:
 		Move(delta)
-		if last_contact == 'PF_MV_3' or mvpf:
-			move.x += push
+		move.x += push
 	Animation()
 	move_and_slide(move * delta * antdelta, Vector2.UP)
 
@@ -103,11 +100,10 @@ func Contact(area: Area2D) -> void:
 
 
 func Contact_node(body: Node) -> void:
-	last_contact = body.name
-	if body.name == "PF_MV_3":
-		push = body.speed
-		mvpf = true
+	print(body.filename)
+	if body.filename == "res://prefabs/CardEffect/PF_MV_3.tscn":
+		push += body.speed
 
 func Exit_Contact_node(body: Node):
-	if body.name == "PF_MV_3":
-		mvpf = false
+	if body.filename == "res://prefabs/CardEffect/PF_MV_3.tscn":
+		push -= body.speed
