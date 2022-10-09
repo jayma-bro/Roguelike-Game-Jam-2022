@@ -1,5 +1,5 @@
 
-const DeckCards = [0, 0, 0, 1, 2, 2, 2, 1, 0, 1]
+const DeckCards = [3,3,3,3,3]
 const DATA = [
 	{
 		'name': "Plateforme",
@@ -17,7 +17,15 @@ const DATA = [
 		'name': "Plateforme mv",
 		'value': "PF_MV_3",
 		'type': "Netral",
-		'attack': 1,
+		'attack': 0,
 		'cost': 0
+	},{
+		'name': "Plateforme V",
+		'value': "PF_V_MV",
+		'type': "Netral",
+		'attack': 0,
+		'cost': 0
+		
 	}
 ]
+

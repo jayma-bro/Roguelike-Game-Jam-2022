@@ -791,31 +791,6 @@ extents = Vector2( 512, 304 )
 [sub_resource type="DynamicFont" id=76]
 font_data = ExtResource( 3 )
 
-[sub_resource type="TileSet" id=77]
-0/name = "tilemap VIOLET.png 0"
-0/texture = ExtResource( 9 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 80, 48 )
-0/tile_mode = 1
-0/autotile/bitmask_mode = 0
-0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 5, Vector2( 1, 0 ), 320, Vector2( 1, 1 ), 325, Vector2( 1, 2 ), 5, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 1, Vector2( 3, 0 ), 69, Vector2( 3, 1 ), 321, Vector2( 4, 0 ), 261, Vector2( 4, 1 ), 324 ]
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 16, 16 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-
 [node name="Niveau" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -833,6 +808,8 @@ jump = 35.0
 
 [node name="Gravity" type="Area2D" parent="."]
 visible = false
+monitoring = false
+monitorable = false
 space_override = 1
 gravity = 2.0
 script = ExtResource( 6 )
@@ -863,23 +840,20 @@ margin_bottom = 320.0
 
 [node name="Title" type="Label" parent="PauseMenu"]
 margin_right = 130.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 78 )
+margin_bottom = 14.0
 text = "PAUSE"
 align = 1
 
 [node name="Resume" type="Button" parent="PauseMenu"]
-margin_top = 35.0
+margin_top = 18.0
 margin_right = 130.0
-margin_bottom = 61.0
-custom_fonts/font = SubResource( 77 )
+margin_bottom = 38.0
 text = "Resume"
 
 [node name="BackToMenu" type="Button" parent="PauseMenu"]
-margin_top = 65.0
+margin_top = 42.0
 margin_right = 130.0
-margin_bottom = 91.0
-custom_fonts/font = SubResource( 79 )
+margin_bottom = 62.0
 text = "Back to menu"
 
 [connection signal="pressed" from="PauseMenu/Resume" to="." method="_on_Resume_pressed"]
