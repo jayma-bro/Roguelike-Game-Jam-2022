@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PF_H_3.png-70813384f2ca278ec26bbca482d4be33.stex"
+path="res://.import/Negatif.png-6e78fe88c1ab8406f581690e76a6da76.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cards/Backgrounds/front/PF_H_3.png"
-dest_files=[ "res://.import/PF_H_3.png-70813384f2ca278ec26bbca482d4be33.stex" ]
+source_file="res://assets/Cards/Backgrounds/front/Negatif.png"
+dest_files=[ "res://.import/Negatif.png-6e78fe88c1ab8406f581690e76a6da76.stex" ]
 
 [params]
 

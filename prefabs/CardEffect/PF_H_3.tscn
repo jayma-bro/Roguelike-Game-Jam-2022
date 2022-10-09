@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/CardEffect/plateforme violette.png" type="Texture" id=1]
 [ext_resource path="res://scripts/CardEffect/PF_H_3.gd" type="Script" id=2]
@@ -34,12 +34,16 @@ animations = [ {
 "speed": 12.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 47, 7 )
+
 [node name="PF_H_3" type="StaticBody2D"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
 shape = SubResource( 15 )
+disabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 6 )
@@ -55,3 +59,9 @@ frames = SubResource( 21 )
 position = Vector2( 32, 6 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 21 )
+
+[node name="SlotArea" type="Area2D" parent="."]
+position = Vector2( 0, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotArea"]
+shape = SubResource( 22 )

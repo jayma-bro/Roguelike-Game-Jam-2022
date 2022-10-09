@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Piege1.png-3c0df32bae44a30cca41d113c3a1c94e.stex"
+path="res://.import/PF_MV_3.png-bbd31296620d9e8cfd0f5ffe38876f0b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cards/Values/Piege1.png"
-dest_files=[ "res://.import/Piege1.png-3c0df32bae44a30cca41d113c3a1c94e.stex" ]
+source_file="res://assets/Cards/Values/PF_MV_3.png"
+dest_files=[ "res://.import/PF_MV_3.png-bbd31296620d9e8cfd0f5ffe38876f0b.stex" ]
 
 [params]
 

@@ -13,6 +13,9 @@ var gravity: float = 0
 var hitVect: Vector2 = Vector2.ZERO
 var hitPwr = 0
 var hit: bool = false
+var ValidPlace: bool = true
+
+signal valid_place(valid)
 
 var move: Vector2 = Vector2.ZERO
 
@@ -25,6 +28,17 @@ func _ready():
 func _process(delta: float) -> void:
 	if actif:
 		Move(delta)
+	else:
+		if ($SlotArea.get_overlapping_areas().size() > 1 or $SlotArea.get_overlapping_bodies().size() > 0):
+			if ValidPlace:
+				ValidPlace = false
+				emit_signal("valid_place", ValidPlace)
+				$AnimatedSprite.modulate = Color('ff5050')
+		else:
+			if !ValidPlace:
+				ValidPlace = true
+				emit_signal("valid_place", ValidPlace)
+				$AnimatedSprite.modulate = Color('ffffff')
 
 	
 func Gravitation(moveY: float) -> float:
@@ -37,7 +51,7 @@ func Gravitation(moveY: float) -> float:
 	return moveY
 
 func Move(delta) -> Vector2:
-	if self.get_parent().get_node('Player').position > position:
+	if get_tree().get_root().get_node('Niveau/Player').position > position:
 		move.x = 1
 	else:
 		move.x = -1
@@ -54,6 +68,9 @@ func Move(delta) -> Vector2:
 
 func Play():
 	actif = true
+	$CollisionShape2D.disabled = false
+	$HitArea.monitorable = true
+	$HitArea.monitoring = true
 
 func Contact(area: Area2D):
 	if area.name == "HitBox":
