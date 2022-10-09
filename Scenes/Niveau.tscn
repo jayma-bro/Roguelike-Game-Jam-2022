@@ -849,6 +849,8 @@ jump = 35.0
 
 [node name="Gravity" type="Area2D" parent="."]
 visible = false
+monitoring = false
+monitorable = false
 space_override = 1
 gravity = 2.0
 script = ExtResource( 6 )
@@ -871,5 +873,29 @@ margin_bottom = 560.0
 custom_fonts/font = SubResource( 76 )
 text = "Play"
 
-[connection signal="pressed" from="PauseMenu/Resume" to="PauseMenu" method="_on_Resume_pressed"]
-[connection signal="pressed" from="PauseMenu/BackToMenu" to="PauseMenu" method="_on_BackToMenu_pressed"]
+[node name="PauseMenu" type="VBoxContainer" parent="."]
+margin_left = 446.0
+margin_top = 152.0
+margin_right = 576.0
+margin_bottom = 320.0
+
+[node name="Title" type="Label" parent="PauseMenu"]
+margin_right = 130.0
+margin_bottom = 14.0
+text = "PAUSE"
+align = 1
+
+[node name="Resume" type="Button" parent="PauseMenu"]
+margin_top = 18.0
+margin_right = 130.0
+margin_bottom = 38.0
+text = "Resume"
+
+[node name="BackToMenu" type="Button" parent="PauseMenu"]
+margin_top = 42.0
+margin_right = 130.0
+margin_bottom = 62.0
+text = "Back to menu"
+
+[connection signal="pressed" from="PauseMenu/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="PauseMenu/BackToMenu" to="." method="_on_BackToMenu_pressed"]
