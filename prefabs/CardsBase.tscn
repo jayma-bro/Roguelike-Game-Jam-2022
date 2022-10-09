@@ -14,6 +14,7 @@ font_data = ExtResource( 3 )
 
 [node name="CardBase" type="Node2D"]
 position = Vector2( 256, 256 )
+z_index = -1
 script = ExtResource( 2 )
 
 [node name="Card" type="Sprite" parent="."]

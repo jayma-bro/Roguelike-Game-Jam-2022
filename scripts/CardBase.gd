@@ -75,7 +75,6 @@ func GridPos() -> Vector2:
 	return Vector2(Grid * round(get_global_mouse_position().x / Grid), Grid * round(get_global_mouse_position().y / Grid))
 
 func _is_valid_place(valid: bool):
-	print(valid)
 	ValidPlace = valid
 
 func _on_mouse_entered():

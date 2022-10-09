@@ -23,7 +23,7 @@ func _ready():
 	gravity = get_tree().get_root().get_node('Niveau/Gravity').gravity
 	get_tree().get_root().get_node('Niveau/Play').connect("pressed", self, "Play")
 	$AnimatedSprite.play("default")
-	
+
 
 func _process(delta: float) -> void:
 	if actif:

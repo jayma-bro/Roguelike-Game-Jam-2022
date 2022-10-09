@@ -1,22 +1,23 @@
 extends Node2D
 
+export var GameSave = {}
+var save_file = File.new()
+
+var TitleShowTime: int = 2
+var Timetemps: float = 0
 
 func _ready():
-	$PauseMenu.set_pause_mode(2)
-	$PauseMenu.visible = false
+	save_file.open("user://savegame.save", File.READ)
+	GameSave = parse_json(save_file.get_as_text())
+	save_file.close()
+	$Title.text = "Niveau " + str(GameSave.Niveau)
 
-func _input(event):
-	if Input.is_action_pressed("ui_cancel") :
-		get_tree().paused = true
-		$PauseMenu.visible = true
-		
-
-
-func _on_Resume_pressed():
-	$PauseMenu.visible = false
-	get_tree().paused = false
-
-
-func _on_BackToMenu_pressed():
-	get_tree().paused = false
-	get_tree().change_scene("res://Scenes/Menu.tscn")
+func _process(delta):
+	if Timetemps < TitleShowTime/2:
+		$Title.percent_visible = Timetemps/ (TitleShowTime/2)
+		Timetemps += delta
+	elif Timetemps < TitleShowTime:
+		$Title.percent_visible = 1
+		Timetemps += delta
+	else:
+		$Title.percent_visible = 0

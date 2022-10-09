@@ -34,23 +34,30 @@ margin_top = 408.0
 margin_right = 192.0
 margin_bottom = 480.0
 
-[node name="Start" type="Button" parent="Buttons"]
+[node name="Continue" type="Button" parent="Buttons"]
 margin_right = 144.0
 margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+text = "Continue"
+
+[node name="Start" type="Button" parent="Buttons"]
+margin_top = 41.0
+margin_right = 144.0
+margin_bottom = 78.0
 custom_fonts/font = SubResource( 1 )
 text = "Start"
 
 [node name="Options" type="Button" parent="Buttons"]
-margin_top = 41.0
+margin_top = 82.0
 margin_right = 144.0
-margin_bottom = 78.0
+margin_bottom = 119.0
 custom_fonts/font = SubResource( 2 )
 text = "Options"
 
 [node name="Quit" type="Button" parent="Buttons"]
-margin_top = 82.0
+margin_top = 123.0
 margin_right = 144.0
-margin_bottom = 119.0
+margin_bottom = 160.0
 custom_fonts/font = SubResource( 3 )
 text = "Quit Game"
 
@@ -72,6 +79,7 @@ margin_bottom = 545.0
 custom_fonts/font = SubResource( 5 )
 text = "Directed by Jamalo"
 
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Buttons/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
