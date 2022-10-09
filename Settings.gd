@@ -2,10 +2,12 @@ extends Node
 
 var GameSave = {
 	"Niveau": 1,
-	"Deck": [2, 1, 0, 0, 0, 1, 1, 2, 2]
+	"Deck": [2, 1, 0, 0, 0, 1, 1, 2, 2],
 }
 
 var Hand: Dictionary = {}
+
+var health = 3
 
 var ActifDeck: Array = []
 

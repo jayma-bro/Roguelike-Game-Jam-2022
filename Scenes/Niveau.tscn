@@ -1053,7 +1053,7 @@ disabled = true
 text = "Play"
 
 [node name="DoorEnter" type="AnimatedSprite" parent="."]
-position = Vector2( 44, 288 )
+position = Vector2( 32, 288 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 216 )
 animation = "Enter"
