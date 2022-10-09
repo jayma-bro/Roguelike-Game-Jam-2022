@@ -1,19 +1,58 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://assets/aventure assets/Traps/Platforms/Grey On (32x8).png" type="Texture" id=1]
+[ext_resource path="res://assets/CardEffect/plateforme verte.png" type="Texture" id=1]
+[ext_resource path="res://scripts/CardEffect/PF_MV_3.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 48, 3 )
 
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
 [node name="PF_MV_3" type="StaticBody2D"]
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )
 shape = SubResource( 30 )
 one_way_collision = true
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 3 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 0, 1, 96, 8 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 6 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 31 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( -32, 6 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 31 )
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+position = Vector2( 32, 6 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 31 )

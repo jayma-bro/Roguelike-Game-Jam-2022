@@ -87,6 +87,5 @@ func _on_CardFormat_gui_input(event: InputEvent):
 				var globalEffect = CardEffect.instance()
 				get_parent().get_parent().get_parent().add_child(globalEffect)
 				globalEffect.position = GridPos()
-				globalEffect.actif = true
 				queue_free()
 

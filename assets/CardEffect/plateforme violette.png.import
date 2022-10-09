@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plateforme verte.png-9cea6c9c47c7688c1d61eaf14a10881c.stex"
+path="res://.import/plateforme violette.png-aff7897240c50366a4b075c499f3c71c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TileSets/plateforme verte.png"
-dest_files=[ "res://.import/plateforme verte.png-9cea6c9c47c7688c1d61eaf14a10881c.stex" ]
+source_file="res://assets/CardEffect/plateforme violette.png"
+dest_files=[ "res://.import/plateforme violette.png-aff7897240c50366a4b075c499f3c71c.stex" ]
 
 [params]
 
