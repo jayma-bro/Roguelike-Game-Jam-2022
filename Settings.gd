@@ -5,7 +5,7 @@ var GameSave = {
 	"Deck": [2, 1, 0, 0, 0, 1, 1, 2, 2]
 }
 
-var Hand: Array = []
+var Hand: Dictionary = {}
 
 var ActifDeck: Array = []
 
