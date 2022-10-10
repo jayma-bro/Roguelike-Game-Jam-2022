@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export var HandMax: int = 8
+export var HandMax: int = 5
 export var PickTime: float = 0.2
 
 # Declare member variables here. Examples:

@@ -26,48 +26,48 @@ var state = inHand
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_child(effect)
-	effect.connect('valid_place', self, '_is_valid_place')
-	effect.hide()
 	CardSize = $CardFormat.rect_size
 	vanillaPosition = position
 	
 	$Border.texture = load(CardBorderImg)
 	$Border.scale = CardSize/$Border.texture.get_size()
-	
 	$Card.texture = load(CardFrontImg)
 	$Card.scale = CardSize/$Card.texture.get_size()
-	
 	$Name.text = CardInfo.name
 	$Cost.text = str(CardInfo.cost)
+	
+	if get_parent().name == 'Playspace':
+		add_child(effect)
+		effect.connect('valid_place', self, '_is_valid_place')
+		effect.hide()
 
 
 func _process(delta):
-	if get_parent().name == 'Playspace':
-		match state:
-			inHand:
-				z_index = 0
-				position = vanillaPosition
-			focusInHand:
-				z_index = 10
+	match state:
+		inHand:
+			z_index = 0
+			position = vanillaPosition
+		focusInHand:
+			z_index = 10
+			if get_parent().name == 'Playspace': 
 				position = vanillaPosition - Vector2(0, FocusUp)
-			inMouse:
-				if position.y > BordPlace:
-					position = get_global_mouse_position()
-				else:
-					position = GridPos()
-		if state == inMouse and position.y < BordPlace:
-			effect.show()
-			$Card.hide()
-			$Border.hide()
-			$Name.hide()
-			$Cost.hide()
-		else: 
-			effect.hide()
-			$Card.show()
-			$Border.show()
-			$Name.show()
-			$Cost.show()
+		inMouse:
+			if position.y > BordPlace:
+				position = get_global_mouse_position()
+			else:
+				position = GridPos()
+	if state == inMouse and position.y < BordPlace:
+		effect.show()
+		$Card.hide()
+		$Border.hide()
+		$Name.hide()
+		$Cost.hide()
+	elif get_parent().name == 'Playspace': 
+		effect.hide()
+		$Card.show()
+		$Border.show()
+		$Name.show()
+		$Cost.show()
 
 func GridPos() -> Vector2:
 	return Vector2(Grid * round(get_global_mouse_position().x / Grid), Grid * round(get_global_mouse_position().y / Grid))
@@ -83,7 +83,7 @@ func _on_mouse_exited():
 
 
 func _on_CardFormat_gui_input(event: InputEvent):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and get_parent().name == 'Playspace':
 		if event.is_pressed():
 			state = inMouse
 		elif state == inMouse:

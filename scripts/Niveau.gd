@@ -1,11 +1,13 @@
 extends Node2D
 
 export var portalSpeed: int = 100
+export var poolList: int = 3
 
 var TitleShowTime: int = 2
 var Timetemps: float = 0
 var StartCompose: bool = false
 var playerClass = preload("res://prefabs/Player.tscn")
+var CardsPool = preload("res://prefabs/CardsPool.tscn")
 var player = null
 
 signal start_compose()
@@ -14,7 +16,7 @@ func _ready():
 	$Gravity.visible =  true
 	$Title.visible =  true
 	Settings.ActifDeck = Settings.GameSave.Deck.duplicate()
-	$Title.text = "Niveau " + str(Settings.GameSave.Niveau)
+	$Title.text = "Level " + str(Settings.GameSave.Level)
 
 func _process(delta: float):
 	if Timetemps < TitleShowTime/2:
@@ -38,7 +40,13 @@ func _start_compose():
 	player.connect("end_lvl", self, "_end_lvl")
 
 func _end_lvl():
-	$Label.visible = true
+	$Upgrade.visible = true
+	var r = 0
+	for i in poolList:
+		var pool = CardsPool.instance()
+		pool.position = Vector2($Upgrade/ListOfPool.rect_size.x * (float(i+1)/float(poolList + 1)), $Upgrade/ListOfPool.rect_size.y/2)
+		$Upgrade/ListOfPool.add_child(pool)
+		r += 1
 
 func _on_empty_hand():
 	print('pas pressé')

@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 export var speed: float = 12.5
 export var jump: float = 35
+export var animationLenth: int = 32
 
 var move: Vector2 = Vector2.ZERO
 var gravity: float = 0
@@ -16,6 +17,7 @@ var actif: bool = false
 var entring: bool = true
 var exiting: bool = false
 
+
 signal end_lvl()
 
 func _ready() -> void:
@@ -26,14 +28,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if entring:
-		move_and_slide(Vector2(35,0), Vector2.UP)
-		if position.x > get_node("/root/Niveau/DoorEnter").position.x + 64:
-			position = get_node("/root/Niveau/DoorEnter").position + Vector2(64, 0)
+		move_and_slide(Vector2(17,0), Vector2.UP)
+		if position.x > get_node("/root/Niveau/DoorEnter").position.x + animationLenth:
+			position = get_node("/root/Niveau/DoorEnter").position + Vector2(animationLenth, 0)
 			entring = false
 			$CollisionShape2D.disabled = false
 	elif exiting:
-		move_and_slide(Vector2(35,0), Vector2.UP)
-		if position.x > get_node("/root/Niveau/DoorExit").position.x + 64:
+		move_and_slide(Vector2(17,0), Vector2.UP)
+		if position.x > get_node("/root/Niveau/DoorExit").position.x + animationLenth:
 			exiting = false
 			get_node('/root/Niveau/CardsEffect').queue_free()
 			get_tree().paused = false
@@ -123,12 +125,12 @@ func Contact(area: Area2D) -> void:
 		hitPwr = area.get_parent().hitStr
 		hitDecrece = area.get_parent().hitDecrece
 		move.y = hitVect.y * hitPwr / 1.5
-		Settings.health -= 1
-		if Settings.health == 2:
+		Settings.GameSave.health -= 1
+		if Settings.GameSave.health == 2:
 			$Jacket.visible = false
-		elif Settings.health == 1:
+		elif Settings.GameSave.health == 1:
 			$Hat.visible = false
-		elif Settings.health == 0:
+		elif Settings.GameSave.health == 0:
 			get_tree().change_scene("res://Scenes/GameOver.tscn")
 	elif area.name == "DoorExit":
 		position = get_node("/root/Niveau/DoorExit").position

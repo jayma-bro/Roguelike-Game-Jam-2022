@@ -1,6 +1,6 @@
 extends Control
 
-var StartSave = Settings.GameSave
+var StartSave = Settings.GameSave.duplicate()
 var save_file = File.new()
 
 
@@ -12,7 +12,8 @@ func _ready():
 		save_file.open("user://savegame.save", File.READ)
 		Settings.GameSave = parse_json(save_file.get_as_text())
 	save_file.close()
-	if Settings.GameSave.Niveau == 1:
+	print(Settings.GameSave)
+	if Settings.GameSave.Level == 1:
 		$Buttons/Continue.visible = false
 	
 
@@ -20,6 +21,7 @@ func _on_Continue_pressed():
 	get_tree().change_scene("res://Scenes/Niveau.tscn")
 
 func _on_Start_pressed():
+	Settings.GameSave = StartSave
 	save_file.open("user://savegame.save", File.WRITE)
 	save_file.store_string(to_json(StartSave))
 	save_file.close()

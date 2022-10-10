@@ -6,14 +6,14 @@
 [ext_resource path="res://assets/Cards/Backgrounds/front/Negatif.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=2]
-size = 14
+size = 9
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 18
 font_data = ExtResource( 3 )
 
 [node name="CardBase" type="Node2D"]
-position = Vector2( 256, 256 )
 z_index = -1
 script = ExtResource( 2 )
 
@@ -29,21 +29,26 @@ texture = ExtResource( 5 )
 
 [node name="Name" type="Label" parent="."]
 margin_left = -40.0
-margin_top = 45.0
-margin_right = 87.0
-margin_bottom = 65.0
+margin_top = 36.0
+margin_right = 40.0
+margin_bottom = 80.0
 custom_colors/font_color = Color( 0.0470588, 0.184314, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "efsrefgh"
+text = "Test de Texte
+sur la
+Carte"
+align = 1
+valign = 1
 
 [node name="Cost" type="Label" parent="."]
-margin_left = 35.0
-margin_top = -96.0
+margin_left = 32.0
+margin_top = -100.0
 margin_right = 58.0
 margin_bottom = -76.0
 custom_fonts/font = SubResource( 3 )
 text = "10"
 align = 1
+valign = 1
 
 [node name="CardFormat" type="MarginContainer" parent="."]
 margin_left = -64.0
