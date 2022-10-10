@@ -13,8 +13,10 @@ var hitDecrece: float = 0
 var hit: bool = false
 var push: float = 0
 var actif: bool = false
+var entring: bool = true
 
 func _ready() -> void:
+	$CollisionShape2D.disabled = true
 	gravity = get_node('/root/Niveau/Gravity').gravity
 	get_node('/root/Niveau/Play').connect("pressed", self, "Play")
 
@@ -22,6 +24,12 @@ func _process(delta: float) -> void:
 	if actif:
 		Move(delta)
 		move.x += push
+	elif entring:
+		move_and_slide(Vector2(30,0), Vector2.UP)
+		if position.x > 96:
+			position = Vector2(96, 336)
+			entring = false
+			$CollisionShape2D.disabled = false
 	Animation()
 	move_and_slide(move * delta * antdelta, Vector2.UP)
 	if position.y > 600:
@@ -42,6 +50,8 @@ func Animation() -> void:
 		$Jacket.flip_h = true
 	if !is_on_floor():
 		PlayAnim("Jump")
+		if entring:
+			PlayAnim("Run")
 	elif move.x != 0:
 		if is_on_wall():
 			PlayAnim('Sprotch')
@@ -111,7 +121,6 @@ func Contact(area: Area2D) -> void:
 
 
 func Contact_node(body: Node) -> void:
-	print(body.filename)
 	if body.filename == "res://prefabs/CardEffect/PF_MV_3.tscn":
 		push += body.speed
 

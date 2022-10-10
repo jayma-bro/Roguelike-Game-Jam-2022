@@ -1,9 +1,6 @@
 extends Control
 
-export var StartSave = {
-	"Niveau": 1,
-	"Deck": [2, 1, 0, 0, 0, 1, 1, 2, 2]
-}
+var StartSave = Settings.GameSave
 var save_file = File.new()
 
 

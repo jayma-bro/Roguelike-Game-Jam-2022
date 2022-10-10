@@ -275,8 +275,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-speed = 150.0
-jump = 300.0
 
 [node name="MainSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -8 )
