@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
 
-var move: Vector2 = Vector2.ZERO
 export var speed: float = 12.5
 export var jump: float = 35
-var gravity: float = 0
 
+var move: Vector2 = Vector2.ZERO
+var gravity: float = 0
 var antdelta: float = 960
 var hitVect: Vector2 = Vector2.ZERO
 var hitPwr: float = 0
@@ -14,25 +14,38 @@ var hit: bool = false
 var push: float = 0
 var actif: bool = false
 var entring: bool = true
+var exiting: bool = false
+
+signal end_lvl()
 
 func _ready() -> void:
+	position = get_node("/root/Niveau/DoorEnter").position
 	$CollisionShape2D.disabled = true
 	gravity = get_node('/root/Niveau/Gravity').gravity
 	get_node('/root/Niveau/Play').connect("pressed", self, "Play")
 
 func _process(delta: float) -> void:
-	if actif:
-		Move(delta)
-		move.x += push
-	elif entring:
-		move_and_slide(Vector2(30,0), Vector2.UP)
-		if position.x > 96:
-			position = Vector2(96, 336)
+	if entring:
+		move_and_slide(Vector2(35,0), Vector2.UP)
+		if position.x > get_node("/root/Niveau/DoorEnter").position.x + 64:
+			position = get_node("/root/Niveau/DoorEnter").position + Vector2(64, 0)
 			entring = false
 			$CollisionShape2D.disabled = false
+	elif exiting:
+		move_and_slide(Vector2(35,0), Vector2.UP)
+		if position.x > get_node("/root/Niveau/DoorExit").position.x + 64:
+			exiting = false
+			get_node('/root/Niveau/CardsEffect').queue_free()
+			get_tree().paused = false
+			get_node("/root/Niveau").pause_mode = Node.PAUSE_MODE_INHERIT
+			emit_signal("end_lvl")
+			queue_free()
+	elif actif:
+		Move(delta)
+		move.x += push
 	Animation()
 	move_and_slide(move * delta * antdelta, Vector2.UP)
-	if position.y > 600:
+	if position.y > 450:
 		get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 
@@ -50,7 +63,7 @@ func Animation() -> void:
 		$Jacket.flip_h = true
 	if !is_on_floor():
 		PlayAnim("Jump")
-		if entring:
+		if entring or exiting:
 			PlayAnim("Run")
 	elif move.x != 0:
 		if is_on_wall():
@@ -117,7 +130,20 @@ func Contact(area: Area2D) -> void:
 			$Hat.visible = false
 		elif Settings.health == 0:
 			get_tree().change_scene("res://Scenes/GameOver.tscn")
-		
+	elif area.name == "DoorExit":
+		position = get_node("/root/Niveau/DoorExit").position
+		get_node("/root/Niveau/DoorExit/DoorExitSpriteFront").play('Exit')
+		get_node("/root/Niveau/DoorExit/DoorExitSpriteBack").play('Exit')
+		$CollisionShape2D.disabled = true
+		$HitBox.monitorable = false
+		$HitBox.monitoring = false
+		move = Vector2.ZERO
+		exiting = true
+		actif = false
+		get_node("/root/Niveau").pause_mode = Node.PAUSE_MODE_PROCESS
+		get_node("/root/Niveau/CardsEffect").pause_mode = Node.PAUSE_MODE_STOP
+		pause_mode = Node.PAUSE_MODE_PROCESS
+		get_tree().paused = true
 
 
 func Contact_node(body: Node) -> void:

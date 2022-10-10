@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if !actif:
-		if ($SlotArea.get_overlapping_areas().size() > 0 or $SlotArea.get_overlapping_bodies().size() > 0):
+		if ($SlotArea.get_overlapping_areas().size() > 1 or $SlotArea.get_overlapping_bodies().size() > 0):
 			if ValidPlace:
 				ValidPlace = false
 				emit_signal("valid_place", ValidPlace)

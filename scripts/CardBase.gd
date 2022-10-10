@@ -43,30 +43,31 @@ func _ready():
 
 
 func _process(delta):
-	match state:
-		inHand:
-			z_index = 0
-			position = vanillaPosition
-		focusInHand:
-			z_index = 10
-			position = vanillaPosition - Vector2(0, FocusUp)
-		inMouse:
-			if position.y > BordPlace:
-				position = get_global_mouse_position()
-			else:
-				position = GridPos()
-	if state == inMouse and position.y < BordPlace:
-		effect.show()
-		$Card.hide()
-		$Border.hide()
-		$Name.hide()
-		$Cost.hide()
-	else: 
-		effect.hide()
-		$Card.show()
-		$Border.show()
-		$Name.show()
-		$Cost.show()
+	if get_parent().name == 'Playspace':
+		match state:
+			inHand:
+				z_index = 0
+				position = vanillaPosition
+			focusInHand:
+				z_index = 10
+				position = vanillaPosition - Vector2(0, FocusUp)
+			inMouse:
+				if position.y > BordPlace:
+					position = get_global_mouse_position()
+				else:
+					position = GridPos()
+		if state == inMouse and position.y < BordPlace:
+			effect.show()
+			$Card.hide()
+			$Border.hide()
+			$Name.hide()
+			$Cost.hide()
+		else: 
+			effect.hide()
+			$Card.show()
+			$Border.show()
+			$Name.show()
+			$Cost.show()
 
 func GridPos() -> Vector2:
 	return Vector2(Grid * round(get_global_mouse_position().x / Grid), Grid * round(get_global_mouse_position().y / Grid))
@@ -91,7 +92,7 @@ func _on_CardFormat_gui_input(event: InputEvent):
 			else:
 				var globalEffect = CardEffect.instance()
 				Settings.Hand.erase(CardIndex)
-				get_node("/root/Niveau").add_child(globalEffect)
+				get_node("/root/Niveau/CardsEffect").add_child(globalEffect)
 				globalEffect.position = GridPos()
 				queue_free()
 

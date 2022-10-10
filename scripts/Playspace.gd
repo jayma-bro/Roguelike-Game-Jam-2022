@@ -23,6 +23,7 @@ func _process(delta):
 		elipsTime = 0
 	if Settings.Hand.size() == 0 and cardCount == HandMax:
 		emit_signal("empty_hand")
+		queue_free()
 	elipsTime += delta
 
 func drawcard():
