@@ -14,7 +14,7 @@ size = 18
 font_data = ExtResource( 3 )
 
 [node name="CardBase" type="Node2D"]
-z_index = -1
+z_index = -2
 script = ExtResource( 2 )
 
 [node name="Card" type="Sprite" parent="."]

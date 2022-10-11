@@ -49,9 +49,7 @@ func _end_lvl():
 		r += 1
 
 func _on_empty_hand():
-	print('pas pressé')
 	$Play.disabled = false
 
 func _on_Play_pressed():
-	print('pressé')
 	$Play.disabled = true

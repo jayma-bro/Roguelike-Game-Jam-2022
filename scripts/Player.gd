@@ -28,13 +28,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if entring:
-		move_and_slide(Vector2(17,0), Vector2.UP)
+		move_and_slide(Vector2(20,0), Vector2.UP)
 		if position.x > get_node("/root/Niveau/DoorEnter").position.x + animationLenth:
 			position = get_node("/root/Niveau/DoorEnter").position + Vector2(animationLenth, 0)
 			entring = false
 			$CollisionShape2D.disabled = false
 	elif exiting:
-		move_and_slide(Vector2(17,0), Vector2.UP)
+		move_and_slide(Vector2(25,0), Vector2.UP)
 		if position.x > get_node("/root/Niveau/DoorExit").position.x + animationLenth:
 			exiting = false
 			get_node('/root/Niveau/CardsEffect').queue_free()
@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
 		Move(delta)
 		move.x += push
 	Animation()
+	Life()
 	move_and_slide(move * delta * antdelta, Vector2.UP)
 	if position.y > 450:
 		get_tree().change_scene("res://Scenes/GameOver.tscn")
@@ -53,6 +54,21 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	pass
+
+func Life():
+	if Settings.GameSave.Health > 3:
+		Settings.GameSave.Health = 3
+	if Settings.GameSave.Health == 3:
+		$Jacket.visible = true
+		$Hat.visible = true
+	if Settings.GameSave.Health == 2:
+		$Jacket.visible = false
+		$Hat.visible = true
+	if Settings.GameSave.Health == 1:
+		$Jacket.visible = false
+		$Hat.visible = false
+	if Settings.GameSave.Health < 1:
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 func Animation() -> void:
 	if move.x > 0:
@@ -125,13 +141,7 @@ func Contact(area: Area2D) -> void:
 		hitPwr = area.get_parent().hitStr
 		hitDecrece = area.get_parent().hitDecrece
 		move.y = hitVect.y * hitPwr / 1.5
-		Settings.GameSave.health -= 1
-		if Settings.GameSave.health == 2:
-			$Jacket.visible = false
-		elif Settings.GameSave.health == 1:
-			$Hat.visible = false
-		elif Settings.GameSave.health == 0:
-			get_tree().change_scene("res://Scenes/GameOver.tscn")
+		Settings.GameSave.Health -= 1
 	elif area.name == "DoorExit":
 		position = get_node("/root/Niveau/DoorExit").position
 		get_node("/root/Niveau/DoorExit/DoorExitSpriteFront").play('Exit')

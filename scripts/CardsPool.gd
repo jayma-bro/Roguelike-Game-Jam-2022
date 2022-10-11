@@ -20,8 +20,6 @@ func _ready():
 func _on_SelectPool_pressed():
 	Settings.GameSave.Deck.append_array(CardList)
 	Settings.GameSave.Level += 1
-	var save_file = File.new()
-	save_file.open("user://savegame.save", File.WRITE)
-	save_file.store_string(to_json(Settings.GameSave))
-	save_file.close()
+	Settings.GameSave.Health += 1
+	Func.SaveGame()
 	get_tree().change_scene("res://Scenes/Niveau.tscn")

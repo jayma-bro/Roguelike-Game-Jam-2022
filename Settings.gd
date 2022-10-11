@@ -1,16 +1,18 @@
 extends Node
 
-var GameSave = {
+var StartSave: Dictionary = {
 	"Level": 1,
 	"Deck": [0, 0, 0, 3, 3],
-	"health": 3
+	"Health": 3
 }
+
+var GameSave: Dictionary = {}
 
 var Hand: Dictionary = {}
 
 var ActifDeck: Array = []
 
-const CardsData = [
+const CardsData: Array = [
 	{
 		'name': 'Plateforme',
 		'value': "PF_H_3",

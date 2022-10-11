@@ -45,10 +45,10 @@ func _ready():
 func _process(delta):
 	match state:
 		inHand:
-			z_index = 0
+			z_index = -2
 			position = vanillaPosition
 		focusInHand:
-			z_index = 10
+			z_index = -1
 			if get_parent().name == 'Playspace': 
 				position = vanillaPosition - Vector2(0, FocusUp)
 		inMouse:
