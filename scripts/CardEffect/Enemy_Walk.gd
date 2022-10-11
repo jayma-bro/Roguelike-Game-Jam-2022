@@ -39,8 +39,21 @@ func _process(delta: float) -> void:
 				ValidPlace = true
 				emit_signal("valid_place", ValidPlace)
 				$AnimatedSprite.modulate = Color('ffffff')
+	Animate()
 
-	
+
+func Animate() -> void:
+	if move.x > 0:
+		$AnimatedSprite.flip_h = true
+	elif move.x < 0:
+		$AnimatedSprite.flip_h = false
+	if !is_on_floor() and actif:
+		$AnimatedSprite.play("Jump")
+	elif move.x != 0:
+		$AnimatedSprite.play("Run")
+	else:
+		$AnimatedSprite.play("Idle")
+
 func Gravitation(moveY: float) -> float:
 	if is_on_floor() and moveY > 10:
 		moveY = 10

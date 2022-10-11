@@ -2,7 +2,7 @@ extends Node
 
 var StartSave: Dictionary = {
 	"Level": 1,
-	"Deck": [0, 0, 0, 3, 3],
+	"Deck": [0, 2, 1, 3, 3],
 	"Health": 3
 }
 

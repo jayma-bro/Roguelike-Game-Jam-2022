@@ -1,34 +1,26 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/CardEffect/plateforme verte.png" type="Texture" id=1]
+[ext_resource path="res://assets/Env/tapis roulant.png" type="Texture" id=1]
 [ext_resource path="res://scripts/CardEffect/PF_MV_3.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 48, 3 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 0, 0, 48, 16 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=39]
 atlas = ExtResource( 1 )
-region = Rect2( 16, 0, 16, 16 )
+region = Rect2( 48, 0, 48, 16 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 16, 16, 16 )
+region = Rect2( 96, 0, 48, 16 )
 
 [sub_resource type="SpriteFrames" id=31]
 animations = [ {
-"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": true,
 "name": "default",
 "speed": 12.0
@@ -48,17 +40,7 @@ disabled = true
 one_way_collision = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 6 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 31 )
-
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
-position = Vector2( -32, 6 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 31 )
-
-[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
-position = Vector2( 32, 6 )
+position = Vector2( 0, 14 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 31 )
 
