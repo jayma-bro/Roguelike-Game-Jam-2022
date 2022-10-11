@@ -22,8 +22,8 @@ Func="*res://Func.gd"
 [display]
 
 window/size/height=576
-window/size/test_width=1924
-window/size/test_height=1080
+window/size/test_width=1600
+window/size/test_height=900
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

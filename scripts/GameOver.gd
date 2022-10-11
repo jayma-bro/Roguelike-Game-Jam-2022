@@ -9,4 +9,4 @@ func _on_MenuButton_pressed():
 
 
 func _on_RestartButton_pressed():
-	get_tree().change_scene("res://Scenes/Niveau.tscn")
+	get_tree().change_scene("res://Scenes/Level.tscn")

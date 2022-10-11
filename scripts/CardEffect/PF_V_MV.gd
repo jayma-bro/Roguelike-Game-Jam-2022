@@ -12,7 +12,7 @@ var move: Vector2 = Vector2(speed, 0)
 
 
 func _ready() -> void:
-	get_tree().get_root().get_node('Niveau/Play').connect("pressed", self, "Play")
+	get_node('/root/Level/Play').connect("pressed", self, "Play")
 	$AnimatedSprite.play("default")
 	
 

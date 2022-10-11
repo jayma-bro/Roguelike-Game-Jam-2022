@@ -92,7 +92,7 @@ func _on_CardFormat_gui_input(event: InputEvent):
 			else:
 				var globalEffect = CardEffect.instance()
 				Settings.Hand.erase(CardIndex)
-				get_node("/root/Niveau/CardsEffect").add_child(globalEffect)
+				get_node("/root/Level/CardsEffect").add_child(globalEffect)
 				globalEffect.position = GridPos()
 				queue_free()
 

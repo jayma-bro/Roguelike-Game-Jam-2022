@@ -15,7 +15,7 @@ var cardCount: int = 0
 signal empty_hand()
 
 func _ready():
-	get_node("/root/Niveau").connect("start_compose", self, "_start_compose")
+	get_node("/root/Level").connect("start_compose", self, "_start_compose")
 
 func _process(delta):
 	if HandMax > cardCount and elipsTime > PickTime and compose:

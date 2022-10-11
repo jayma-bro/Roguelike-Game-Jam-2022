@@ -22,4 +22,4 @@ func _on_SelectPool_pressed():
 	Settings.GameSave.Level += 1
 	Settings.GameSave.Health += 1
 	Func.SaveGame()
-	get_tree().change_scene("res://Scenes/Niveau.tscn")
+	get_tree().change_scene("res://Scenes/Level.tscn")

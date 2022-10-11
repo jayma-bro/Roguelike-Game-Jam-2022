@@ -20,8 +20,8 @@ signal valid_place(valid)
 var move: Vector2 = Vector2.ZERO
 
 func _ready():
-	gravity = get_node('/root/Niveau/Gravity').gravity
-	get_node('/root/Niveau/Play').connect("pressed", self, "Play")
+	gravity = get_node('/root/Level/Gravity').gravity
+	get_node('/root/Level/Play').connect("pressed", self, "Play")
 	$AnimatedSprite.play("default")
 
 
@@ -51,7 +51,7 @@ func Gravitation(moveY: float) -> float:
 	return moveY
 
 func Move(delta) -> Vector2:
-	if get_node('/root/Niveau/Player').position > position:
+	if get_node('/root/Level/Player').position > position:
 		move.x = 1
 	else:
 		move.x = -1
