@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	Settings.GameSave = Settings.StartSave.duplicate()
+	Settings.GameSave = Settings.StartSave.duplicate(true)
 	Func.SaveGame()
 
 func _on_MenuButton_pressed():

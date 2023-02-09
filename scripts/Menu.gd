@@ -11,8 +11,6 @@ func _on_Continue_pressed():
 	get_tree().change_scene("res://Scenes/Level.tscn")
 
 func _on_Start_pressed():
-	Settings.GameSave = Settings.StartSave.duplicate()
-	Func.SaveGame()
 	get_tree().change_scene("res://Scenes/Level.tscn")
 
 func _on_Options_pressed():
